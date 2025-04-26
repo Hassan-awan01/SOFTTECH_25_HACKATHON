@@ -18,8 +18,6 @@ databaseConnection()
 
 // Routes
 app.use("/api/auth", authRoutes);
-
-// Health check route
 app.get("/health", (req, res) => {
   res.json({ status: "healthy", service: "auth-service" });
 });

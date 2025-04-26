@@ -81,6 +81,7 @@ router.post("/signin", async (req, res) => {
         name: user.name,
         email: user.email,
       },
+      Authenticated: true,
     });
   } catch (error) {
     res.status(500).json({ error: "Error signing in" });
@@ -91,7 +92,7 @@ router.post("/signin", async (req, res) => {
 router.post("/verify-token", async (req, res) => {
   try {
     const token = req.header("Authorization")?.replace("Bearer ", "");
-
+    console.log("Token:", token);
     if (!token) {
       return res.status(401).json({
         authenticated: false,
